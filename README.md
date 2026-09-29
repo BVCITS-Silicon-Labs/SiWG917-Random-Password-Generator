@@ -209,22 +209,7 @@ const char charset[] =
 
 For every password position, a random index is generated.
 
-# 🧩 Button Press Detection
 
-The application keeps track of the previous button state.
-
-```text
-Previous State     Current State
-     0                  1
-     │                  │
-     └────── Press ─────┘
-```
-
-This allows the firmware to detect a **new physical press** rather than repeatedly generating passwords while a button remains pressed.
-
-The button state is then updated for the next iteration.
-
----
 
 # 🖥️ Serial Terminal Output
 
