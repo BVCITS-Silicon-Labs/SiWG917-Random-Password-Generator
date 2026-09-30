@@ -1,0 +1,69 @@
+# Silicon Labs Project Configuration Tools: slcp, v0, Component selection file.
+project_name: sl_si91x_empty_c_soc_34
+label: sl_si91x_empty_c_soc_34
+description: |
+  Demonstrates how to create an empty configuration that can be used as a starting point to add components and functionality.
+category: Example|Platform
+filter:
+- name: Device Type
+  value:
+  - SoC
+- name: MCU
+  value:
+  - 32-bit MCU
+- name: Project Difficulty
+  value:
+  - Beginner
+package: platform_siwx91x_app
+quality: production
+readme:
+- path: readme.md
+source:
+- path: app.c
+include:
+- path: .
+  file_list:
+  - path: app.h
+sdk:
+  vendor: silabs
+  id: simplicity_sdk
+  version: 2025.12.2
+toolchain_settings:
+- value: -Wall -Werror
+  option: gcc_compiler_option
+component:
+- package: simplicity_sdk
+  vendor: silabs
+  id: sl_main
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: SIWG917M111MGTBA
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: brd2605a
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: si91x_memory_default_config
+- package: wiseconnect3_sdk
+  instance:
+  - btn0
+  - btn1
+  vendor: silabs
+  id: sl_si91x_button_917
+- package: wiseconnect3_sdk
+  vendor: silabs
+  id: syscalls
+define:
+- name: SLI_SI91X_EMPTY_PROJECT
+ui_hints:
+  highlight:
+  - path: readme.md
+    focus: true
+sdk_extension:
+- vendor: silabs
+  id: wiseconnect3_sdk
+  version: 4.0.1
+post_build:
+- path: sl_si91x_empty_c_soc_34.slpb
+  profile: wiseconnect_soc
+
